@@ -1,23 +1,116 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #ffffff;
+  --accent: #FF2929;
+  --accent-secondary: #C81020;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #050505;
+  color: #ffffff;
+  color-scheme: dark;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: #FF2929;
+  color: #ffffff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF2929;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel-glow {
+  background: rgba(20, 15, 17, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 41, 41, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(255, 41, 41, 0.12);
+}
+
+.glass-card-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  border-color: rgba(255, 41, 41, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -10px rgba(255, 41, 41, 0.25);
+}
+
+/* Red atmosphere glow backgrounds */
+.ambient-glow-red {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 41, 41, 0.18) 0%, rgba(200, 16, 32, 0.05) 45%, transparent 70%);
+}
+
+.ambient-glow-top {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 41, 41, 0.22) 0%, transparent 60%);
+}
+
+/* Subtle grid line overlay */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at center, transparent 30%, #050505 90%);
+}
+
+/* Text Gradients */
+.text-gradient-red {
+  background: linear-gradient(135deg, #ffffff 30%, #FF2929 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(180deg, #FFFFFF 0%, #A1A1A1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Red glowing border line */
+.border-gradient-red {
+  border-image: linear-gradient(to right, transparent, rgba(255, 41, 41, 0.5), transparent) 1;
 }
 
 @layer utilities {
